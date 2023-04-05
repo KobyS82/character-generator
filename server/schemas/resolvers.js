@@ -1,41 +1,24 @@
-const { Thought } = require('../models');
+const { Character } = require('../models');
 
 const resolvers = {
   Query: {
-    thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+    getCharacter: async (_, { _id }, { Character }) => {
+      return await Character.findById(_id);
     },
-
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    getCharacters: async (_, { characterName }, { Character }) => {
+      return await Character.find({ characterName });
     },
   },
-
   Mutation: {
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      return Thought.create({ thoughtText, thoughtAuthor });
+    createCharacter: async (_, args, { Character }) => {
+      const char = await Character.create(args);
+      return char;
     },
-    addComment: async (parent, { thoughtId, commentText }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        {
-          $addToSet: { comments: { commentText } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    updateCharacter: async (_, { _id, ...rest }, { Character }) => {
+      return await Character.findByIdAndUpdate(_id, rest, { new: true });
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
-    },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
-      );
+    deleteCharacter: async (_, { _id }, { Character }) => {
+      return await Character.findByIdAndRemove(_id);
     },
   },
 };
