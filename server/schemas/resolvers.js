@@ -1,17 +1,9 @@
-const { Thought } = require('../models');
 
-const resolvers = {
-  Query: {
-    thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
-    },
-
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
     },
   },
 
   Mutation: {
+
     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
       return Thought.create({ thoughtText, thoughtAuthor });
     },
@@ -20,6 +12,16 @@ const resolvers = {
         { _id: thoughtId },
         {
           $addToSet: { comments: { commentText } },
+=======
+    addProfile: async (parent, { name }) => {
+      return Profile.create({ name });
+    },
+    addSkill: async (parent, { profileId, skill }) => {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
+        {
+          $addToSet: { skills: skill },
+
         },
         {
           new: true,
@@ -27,6 +29,7 @@ const resolvers = {
         }
       );
     },
+
     removeThought: async (parent, { thoughtId }) => {
       return Thought.findOneAndDelete({ _id: thoughtId });
     },
@@ -34,6 +37,7 @@ const resolvers = {
       return Thought.findOneAndUpdate(
         { _id: thoughtId },
         { $pull: { comments: { _id: commentId } } },
+
         { new: true }
       );
     },

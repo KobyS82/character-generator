@@ -1,4 +1,5 @@
 const db = require('../config/connection');
+
 const { Thought } = require('../models');
 const thoughtSeeds = require('./thoughtSeeds.json');
 
