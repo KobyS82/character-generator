@@ -13,6 +13,12 @@ const typeDefs = gql`
     lastUpdated: Date
   }
 
+  type User {
+    _id: ID!
+    userName: String
+    password: String
+  }
+
   type Query {
     getCharacter(_id: ID!): Character
     getCharacters(characterName: String): [Character]
