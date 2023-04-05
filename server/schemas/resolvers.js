@@ -1,17 +1,18 @@
-const { Profile } = require('../models');
 
-const resolvers = {
-  Query: {
-    profiles: async () => {
-      return Profile.find();
-    },
-
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
     },
   },
 
   Mutation: {
+
+    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
+      return Thought.create({ thoughtText, thoughtAuthor });
+    },
+    addComment: async (parent, { thoughtId, commentText }) => {
+      return Thought.findOneAndUpdate(
+        { _id: thoughtId },
+        {
+          $addToSet: { comments: { commentText } },
+=======
     addProfile: async (parent, { name }) => {
       return Profile.create({ name });
     },
@@ -20,6 +21,7 @@ const resolvers = {
         { _id: profileId },
         {
           $addToSet: { skills: skill },
+
         },
         {
           new: true,
@@ -27,13 +29,15 @@ const resolvers = {
         }
       );
     },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
+
+    removeThought: async (parent, { thoughtId }) => {
+      return Thought.findOneAndDelete({ _id: thoughtId });
     },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
+    removeComment: async (parent, { thoughtId, commentId }) => {
+      return Thought.findOneAndUpdate(
+        { _id: thoughtId },
+        { $pull: { comments: { _id: commentId } } },
+
         { new: true }
       );
     },
