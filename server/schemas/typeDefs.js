@@ -28,6 +28,9 @@ const typeDefs = gql`
     createCharacter(characterName: String!, strength: Int!, dexterity: Int!, constitution: Int!, intelligence: Int!, wisdom: Int!, charisma: Int!): Character
     updateCharacter(_id: ID!, characterName: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int): Character
     deleteCharacter(_id: ID!): Character
+	createUser(userName: String!, password: String!): User
+    updateUser(_id: ID!, userName: String, password: String): User
+    deleteUser(_id: ID!): User
   }
 `;
 
