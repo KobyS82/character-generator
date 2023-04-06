@@ -10,7 +10,6 @@ const typeDefs = gql`
     intelligence: Int
     wisdom: Int
     charisma: Int
-    lastUpdated: Date
   }
 
   type User {
@@ -22,6 +21,9 @@ const typeDefs = gql`
   type Query {
     getCharacter(_id: ID!): Character
     getCharacters(characterName: String): [Character]
+    getUser(userName: String): User
+	login(userName: String!, password: String!): User
+	logout(userName: String!, password: String!): User
   }
 
   type Mutation {
@@ -31,6 +33,8 @@ const typeDefs = gql`
 	createUser(userName: String!, password: String!): User
     updateUser(_id: ID!, userName: String, password: String): User
     deleteUser(_id: ID!): User
+	login(userName: String!, password: String!): User
+	logout(userName: String!, password: String!): User
   }
 `;
 
