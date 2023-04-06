@@ -1,38 +1,50 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require('mongoose');
 
-const CharacterSchema = new mongoose.Schema({
-  characterName: {
-    type: String,
-    required: true,
-  },
-  strength: {
-    type: Number,
-    required: true,
-  },
-  dexterity: {
-    type: Number,
-    required: true,
-  },
-  constitution: {
-    type: Number,
-    required: true,
-  },
-  intelligence: {
-    type: Number,
-    required: true,
-  },
-  wisdom: {
-    type: Number,
-    required: true,
-  },
-  charisma: {
-    type: Number,
-    required: true,
-  },
-  lastUpdated: {
-    type: Date,
-    default: Date.now,
-  },
+const characterSchema = new Schema({
+    characterName: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    strength: {
+      type: Int,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    dexterity: {
+      type: Int,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    constitution: {
+      type: Int,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    intelligence: {
+      type: Int,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    wisdom: {
+      type: Int,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    charisma: {
+      type: Int,
+      required: true,
+      unique: true,
+      trim: true,
+    },
 });
 
-module.exports = mongoose.model("Character", CharacterSchema);
+const Character = model('Character', characterSchema);
+
+module.exports = Character;
