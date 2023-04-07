@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_CHARACTERS } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const { loading, data } = useQuery(QUERY_CHARACTERS);
 
   return (
     <main>
