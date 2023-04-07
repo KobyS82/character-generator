@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Header from './components/Header';
+import Login from './pages/Login';
 import Footer from './components/Footer';
 
 const client = new ApolloClient({
@@ -22,6 +23,10 @@ function App() {
               <Route 
                 path="/" 
                 element={<Home />} 
+              />
+              <Route 
+                path="/login" 
+                element={<Login />} 
               />
             </Routes>
           </div>
