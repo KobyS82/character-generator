@@ -1,0 +1,39 @@
+[
+  {
+    "characterName": "Goz Blackheart",
+    "strength": 11,
+    "dexterity": 12,
+    "constitution": 13,
+    "intelligence": 14,
+    "wisdom": 15,
+    "charisma": 16
+  },
+  {
+    "characterName": "Jhonathan Hiberd",
+    "strength": 16,
+    "dexterity": 15,
+    "constitution": 14,
+    "intelligence": 13,
+    "wisdom": 12,
+    "charisma": 11
+  },
+  {
+    "characterName": "Winston the Orc",
+    "strength": 14,
+    "dexterity": 8,
+    "constitution": 11,
+    "intelligence": 12,
+    "wisdom": 11,
+    "charisma": 9
+  },
+  {
+    "characterName": "Phillip Vector",
+    "strength": 10,
+    "dexterity": 10,
+    "constitution": 10,
+    "intelligence": 10,
+    "wisdom": 10,
+    "charisma": 10
+  }
+  
+]
