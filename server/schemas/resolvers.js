@@ -2,13 +2,10 @@ const { Character, User } = require('../models');
 
 const resolvers = {
   Query: {
-    getCharacter: async (_, { _id }, { Character }) => {
+    Character: async (_, { _id }, { Character }) => {
       return await Character.findById(_id);
     },
-    getCharacters: async (_, { characterName }, { Character }) => {
-      return await Character.find({ characterName });
-    },
-    getUser: async (_, { _id }, { User }) => {
+    UserCharacters: async (_, { _id }, { User }) => {
       return await User.findById(_id);
     },
   },
