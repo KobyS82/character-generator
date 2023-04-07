@@ -5,12 +5,12 @@ export const QUERY_CHARACTERS = gql`
     Characters {
       _id
       characterName
-		strength
-		dexterity
-		constitution
-		intelligence
-		wisdom
-		charisma
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
     }
   }
 `;
