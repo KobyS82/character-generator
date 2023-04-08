@@ -1,7 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
+
 import { QUERY_CHARACTERS } from '../utils/queries';
+import Generator from '../components/Generator/Generator';
 
 const Home = () => {
   const { loading } = useQuery(QUERY_CHARACTERS);
