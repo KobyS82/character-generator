@@ -1,28 +1,31 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_CHARACTERS = gql`
+  query getCharacters {
+    Characters {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      characterName
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_CHARACTER = gql`
+query getSingleCharacter($id: ID!) { 
+  Character(id: $id) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      characterName
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
     }
   }
 `;
