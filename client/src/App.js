@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Login from './pages/Login';
 import Footer from './components/Footer';
+import Generator from './components/Generator/Generator';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
