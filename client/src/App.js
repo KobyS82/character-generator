@@ -6,7 +6,9 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import About from "./pages/About"; 
+import Minigame from "./pages/Game";
 import Contact from "./pages/Contact";
+import Creators from './pages/Creators';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -33,6 +35,10 @@ function App() {
               <Route 
                 path="/Contact" 
                 element={<Contact />} 
+              />
+              <Route 
+                path="/Creators" 
+                element={<Creators />} 
               />
               
             </Routes>
