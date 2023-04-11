@@ -25,6 +25,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
+          &copy; 2023 The Six Coding Nerds
         </h4>
       </div>
     </footer>
