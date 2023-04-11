@@ -50,12 +50,21 @@ const resolvers =
 
 		login: async (_, { userName, password }, { User }) => 
 		{
-			const user = await User.findOne({ userName, password });
+			const user = await User.findOne({ userName });
+			
 			if (!user) 
 			{
-				throw new Error('Invalid credentials');
+				throw new AuthenticationError('No user found with this username');
 			}
-			return user;
+			const correctPw = await user.isCorrectPassword(password);
+
+			if (!correctPw) {
+				throw new AuthenticationError('Incorrect credentials');
+			}
+
+			const token = signToken(user);
+
+			return { token, user };
 		},
 
 		logout: async (_, { userName, password }, { User }) => 
@@ -65,6 +74,7 @@ const resolvers =
 			{
 				throw new Error('Invalid credentials');
 			}
+			
 			return user;
 		},
 	}
