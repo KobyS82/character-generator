@@ -15,6 +15,18 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
+        <h4>
+          Made with{' '}
+          <span
+            className="emoji"
+            role="img"
+            aria-label="heart"
+            aria-hidden="false"
+          >
+            ❤️
+          </span>{' '}
+          &copy; 2023 The Six Coding Nerds
+        </h4>
       </div>
     </footer>
   );

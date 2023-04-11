@@ -33,9 +33,9 @@ const resolvers =
 			return await Character.findByIdAndRemove({_id: _id});
 		},
 
-		createUser: async (_, args, { userName, password }) => 
+		createUser: async ( parent, { userName, password }) => 
 		{
-			const user = await User.create(userName, password);
+			const user = await User.create({userName, password});
 			const token = signToken(user);
 			return {token, user};
 		},
@@ -45,12 +45,12 @@ const resolvers =
 			return await User.findByIdAndUpdate(_id, rest, { new: true });
 		},
 
-		deleteUser: async (_, { _id }, { User }) => 
+		deleteUser: async (parent, { _id }) => 
 		{
-			return await User.findByIdAndRemove(_id);
+			return await User.findByIdAndRemove({_id: _id});
 		},
 
-		login: async (_, { userName, password }, { User }) => 
+		login: async (parent, { userName, password }) => 
 		{
 			const user = await User.findOne({ userName });
 			
@@ -69,7 +69,7 @@ const resolvers =
 			return { token, user };
 		},
 
-		logout: async (_, { userName, password }, { User }) => 
+		logout: async (parent, { userName, password }) => 
 		{
 			const user = await User.findOne({ userName, password });
 			if (!user) 
