@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_CHARACTERS } from '../utils/queries';
 import Generator from '../components/Generator/Generator';
 import ClassGenerator from '../components/ClassGenerator/ClassGenerator';
+import RaceGenerator from '../components/RaceGenerator/RaceGenerator';
 
 const Home = () => {
   const { loading } = useQuery(QUERY_CHARACTERS);
@@ -19,6 +20,7 @@ const Home = () => {
             <div>
             <Generator />
             <ClassGenerator />
+            <RaceGenerator />
             </div>
           )}
         </div>
