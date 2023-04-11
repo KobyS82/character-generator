@@ -4,7 +4,7 @@ const Creators= () => {
     return (
     <div className="flex justify-center">
       <h1 className="text-center">
-        Something else
+        Placeholder for now, couldn't thing of anything else at the time
       </h1>
       </div>
     );

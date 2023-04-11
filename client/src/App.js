@@ -7,9 +7,9 @@ import Header from './components/Header';
 import Login from './pages/Login';
 import Footer from './components/Footer';
 import About from "./pages/About"; 
-import Game from "./pages/Game";
 import Contact from "./pages/Contact";
 import Creators from './pages/Creators';
+import Game from "./pages/Game";
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -24,7 +24,6 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              {/* do this for all the different pages */}
               <Route 
                 path="/" 
                 element={<Home />} 
@@ -34,14 +33,17 @@ function App() {
                 element={<About />} 
               />
               <Route 
-                path="/Contact" 
-                element={<Contact />} 
-              />
-              <Route 
                 path="/Creators" 
                 element={<Creators />} 
               />
-              
+               <Route 
+                path="/Game" 
+                element={<Game />} 
+              />
+              <Route 
+                path="/Contact" 
+                element={<Contact />} 
+              />
             </Routes>
           </div>
           <Footer />
