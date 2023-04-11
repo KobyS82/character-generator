@@ -1,4 +1,5 @@
 const { Character, User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = 
 {
@@ -32,10 +33,11 @@ const resolvers =
 			return await Character.findByIdAndRemove(_id);
 		},
 
-		createUser: async (_, args, { User }) => 
+		createUser: async (_, args, { userName, password }) => 
 		{
-			const user = await User.create(args);
-			return user;
+			const user = await User.create(userName, password);
+			const token = signToken(user);
+			return {token, user};
 		},
 
 		updateUser: async (_, { _id, ...rest }, { User }) => 
