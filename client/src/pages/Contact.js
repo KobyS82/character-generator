@@ -1,13 +1,3 @@
-/*const Contact = () => {
-    return (
-      <p>
-        Want to get in contact with the creators of this application?
-      </p>
-    );
-  };
-
-  export default Contact*/
-
   const Contact = () => {
     return (
       <div className="bg-gray-100">
