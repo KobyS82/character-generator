@@ -1,4 +1,5 @@
 const { Character, User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = 
 {
@@ -17,9 +18,9 @@ const resolvers =
 
 	Mutation: 
 	{
-		createCharacter: async (parent, { name }) => 
+		createCharacter: async (parent, { characterName, strength, dexterity, constitution, intelligence, wisdom, charisma }) => 
 		{
-			return await Character.create(args);
+			return await Character.create({characterName, strength, dexterity, constitution, intelligence, wisdom, charisma});
 		},
 
 		updateCharacter: async (_, { _id, ...rest }, { Character }) => 
@@ -27,15 +28,16 @@ const resolvers =
 			return await Character.findByIdAndUpdate(_id, rest, { new: true });
 		},
 
-		deleteCharacter: async (_, { _id }, { Character }) => 
+		deleteCharacter: async (_, { _id }) => 
 		{
-			return await Character.findByIdAndRemove(_id);
+			return await Character.findByIdAndRemove({_id: _id});
 		},
 
-		createUser: async (_, args, { User }) => 
+		createUser: async (_, args, { userName, password }) => 
 		{
-			const user = await User.create(args);
-			return user;
+			const user = await User.create(userName, password);
+			const token = signToken(user);
+			return {token, user};
 		},
 
 		updateUser: async (_, { _id, ...rest }, { User }) => 
@@ -50,12 +52,21 @@ const resolvers =
 
 		login: async (_, { userName, password }, { User }) => 
 		{
-			const user = await User.findOne({ userName, password });
+			const user = await User.findOne({ userName });
+			
 			if (!user) 
 			{
-				throw new Error('Invalid credentials');
+				throw new AuthenticationError('No user found with this username');
 			}
-			return user;
+			const correctPw = await user.isCorrectPassword(password);
+
+			if (!correctPw) {
+				throw new AuthenticationError('Incorrect credentials');
+			}
+
+			const token = signToken(user);
+
+			return { token, user };
 		},
 
 		logout: async (_, { userName, password }, { User }) => 
@@ -65,6 +76,7 @@ const resolvers =
 			{
 				throw new Error('Invalid credentials');
 			}
+			
 			return user;
 		},
 	}
