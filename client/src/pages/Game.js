@@ -1,11 +1,11 @@
 const Game= () => {
-    return (
-    <div className="flex justify-center">
-      <p className="text-center">
-        Character Generator Minigame coming soon....
-      </p>
+  return (
+  <div className="flex justify-center">
+    <h1 className="text-center">
+      Game coming soon...
+    </h1>
     </div>
-    );
-  };
+  );
+};
 
-  export default Game
+export default Game
