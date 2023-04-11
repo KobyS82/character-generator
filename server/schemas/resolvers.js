@@ -50,7 +50,7 @@ const resolvers =
 			return await User.findByIdAndRemove(_id);
 		},
 
-		login: async (_, { userName, password }, { User }) => 
+		login: async (parent, { userName, password }) => 
 		{
 			const user = await User.findOne({ userName });
 			
