@@ -33,9 +33,9 @@ const resolvers =
 			return await Character.findByIdAndRemove(_id);
 		},
 
-		createUser: async (_, args, { userName, password }) => 
+		createUser: async ( parent, { userName, password }) => 
 		{
-			const user = await User.create(userName, password);
+			const user = await User.create({userName, password});
 			const token = signToken(user);
 			return {token, user};
 		},
