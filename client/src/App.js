@@ -44,6 +44,10 @@ function App() {
                 path="/Contact" 
                 element={<Contact />} 
               />
+              <Route 
+                path="/login" 
+                element={<Login />} 
+              />
             </Routes>
           </div>
           <Footer />
