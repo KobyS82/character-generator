@@ -18,9 +18,9 @@ const resolvers =
 
 	Mutation: 
 	{
-		createCharacter: async (parent, { name }) => 
+		createCharacter: async (parent, { characterName, strength, dexterity, constitution, intelligence, wisdom, charisma }) => 
 		{
-			return await Character.create(args);
+			return await Character.create({characterName, strength, dexterity, constitution, intelligence, wisdom, charisma});
 		},
 
 		updateCharacter: async (_, { _id, ...rest }, { Character }) => 
@@ -28,9 +28,9 @@ const resolvers =
 			return await Character.findByIdAndUpdate(_id, rest, { new: true });
 		},
 
-		deleteCharacter: async (_, { _id }, { Character }) => 
+		deleteCharacter: async (_, { _id }) => 
 		{
-			return await Character.findByIdAndRemove(_id);
+			return await Character.findByIdAndRemove({_id: _id});
 		},
 
 		createUser: async (_, args, { userName, password }) => 
