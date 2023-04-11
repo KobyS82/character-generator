@@ -28,9 +28,9 @@ const resolvers =
 			return await Character.findByIdAndUpdate(_id, rest, { new: true });
 		},
 
-		deleteCharacter: async (_, { _id }, { Character }) => 
+		deleteCharacter: async (_, { _id }) => 
 		{
-			return await Character.findByIdAndRemove(_id);
+			return await Character.findByIdAndRemove({_id: _id});
 		},
 
 		createUser: async (_, args, { userName, password }) => 
