@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { FaDiceD20 } from "react-icons/fa";
+import { FaDice } from "react-icons/fa";
 
 const ClassGenerator = () => {
    const characterClass = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard','Artificer'];
@@ -19,7 +19,7 @@ const ClassGenerator = () => {
          <div className="mb-20 py-[2px]">
             <button className="absolute flex items-center justify-center mx-[48px] hover:text-orange-300 hover:rounded text-gray-800 transform transition-all duration-300 hover:scale-110"
             onClick={() => setStat(characterClass[Math.floor(Math.random() * characterClass.length)])}>
-            <FaDiceD20 size={64} />
+            <FaDice size={64} />
             </button>
          </div>
       </div>
