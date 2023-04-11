@@ -4,8 +4,6 @@ import { FaDiceD20 } from "react-icons/fa";
 
 const ClassGenerator = () => {
    const characterClass = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard','Artificer'];
-   let randomValue = characterClass[Math.floor(Math.random() * characterClass.length)];
-   let position = characterClass.indexOf(randomValue);
    let [stat, setStat] = useState(0);
 
   return (
