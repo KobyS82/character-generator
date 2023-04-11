@@ -18,9 +18,9 @@ const resolvers =
 
 	Mutation: 
 	{
-		createCharacter: async (parent, { name }) => 
+		createCharacter: async (parent, { characterName, strength, dexterity, constitution, intelligence, wisdom, charisma }) => 
 		{
-			return await Character.create(args);
+			return await Character.create({characterName, strength, dexterity, constitution, intelligence, wisdom, charisma});
 		},
 
 		updateCharacter: async (_, { _id, ...rest }, { Character }) => 
