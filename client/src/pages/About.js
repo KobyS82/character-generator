@@ -23,19 +23,19 @@
             <div className="mt-4">
               
               <span className="text-gray-500 font-medium mr-4"> Jesus Perez Alvarado </span>
-              <img className="h-48 w-full object-cover lg:h-auto lg:w-48" src="https://via.placeholder.com/300x300.png" alt="Team Member" />
+              <img className="h-48 w-full object-cover lg:h-auto lg:w-48" src="./images/jesus_screenshot.jpg" alt="Team Member" />
               <br></br>
 
               <span className="text-gray-500 font-medium mr-4"> Joseph Bullock-Palsner</span>
-              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="https://via.placeholder.com/300x300.png" alt="Team Member" />
+              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="./images/joseph_screenshot.jpg" alt="Team Member" />
               <br></br>
 
               <span className="text-gray-500 font-medium mr-4"> Koby Sillito </span>
-              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="https://via.placeholder.com/300x300.png" alt="Team Member" />
+              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="./images/" alt="Team Member" />
               <br></br>
 
               <span className="text-gray-500 font-medium mr-4"> Caleb Davidson </span>
-              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="https://via.placeholder.com/300x300.png" alt="Team Member" />
+              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="./images/caleb_screenshot.jpg" alt="Team Member" />
               <br></br>
 
               <span className="text-gray-500 font-medium mr-4"> Sean Yanez </span>
