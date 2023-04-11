@@ -14,6 +14,10 @@ const resolvers =
 		{
 			return await Character.findOne({ _id: _id });
 		},
+		Users: async () => 
+		{
+			return await User.find();
+		},
 	},
 
 	Mutation: 
