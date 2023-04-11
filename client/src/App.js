@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Login from './pages/Login';
 import Footer from './components/Footer';
 import About from "./pages/About"; 
-import Minigame from "./pages/Game";
+import Game from "./pages/Game";
 import Contact from "./pages/Contact";
 import Creators from './pages/Creators';
 
