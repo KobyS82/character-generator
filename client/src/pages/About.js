@@ -29,7 +29,7 @@
               <img className="h-48 w-full object-cover lg:h-auto lg:w-48" src="./images/jesus_screenshot.jpg" alt="Team Member" />
               <br></br>
 
-              <span className="text-gray-500 font-medium mr-4"> Joseph Bullock-Palsner</span>
+              <span className="text-gray-500 font-medium mr-4"> Joseph Bullock-Palser</span>
               <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="./images/joseph_screenshot.jpg" alt="Team Member" />
               <br></br>
 
