@@ -12,8 +12,10 @@
 
     return (
       <div className='text-gray-500 py-4 text-center'>
-        <h1 className='text-3xl font-bold mb-4'>Spells</h1>
-        <h3 className='text-black'>Use this spells cheetsheet in your battles. Be smart and fight well! </h3>
+        <h1 className='text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl'>Spells</h1>
+        <br></br>
+        <br></br>
+        <h3 className='text-black'> Use this spells cheetsheet to gain the advantage </h3>
         <br></br>
         <ul>
           {spells.map(spell => (
