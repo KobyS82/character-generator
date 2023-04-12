@@ -1,3 +1,6 @@
+// use this to decode a token and get the user's information out of it
+import decode from 'jwt-decode';
+
 class AuthService {
     // get user data from JSON web token by decoding it
     getProfile() {
@@ -29,4 +32,5 @@ class AuthService {
     }
   }
   
+  // eslint-disable-next-line import/no-anonymous-default-export
   export default new AuthService();
