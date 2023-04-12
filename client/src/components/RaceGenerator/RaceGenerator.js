@@ -4,8 +4,6 @@ import { FaDiceD20 } from "react-icons/fa";
 
 const RaceGenerator = () => {
   const characterClass = ['Dwarf', 'Elf', 'Halfling', 'Human', 'Dragonborn', 'Gnome', 'Half-Elf', 'Half-Orc', 'Tiefling'];
-  let randomValue = characterClass[Math.floor(Math.random() * characterClass.length)];
-  let position = characterClass.indexOf(randomValue);
   let [stat, setStat] = useState(0);
 
  return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect, useState} from 'react'
+import { useState } from 'react'
 import { FaDiceOne, FaDiceTwo, FaDiceThree, FaDiceFour, FaDiceFive, FaDiceSix } from "react-icons/fa";
 
 const Generator = () => {
