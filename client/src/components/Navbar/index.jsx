@@ -11,7 +11,9 @@ const Navbar = () => {
                 <Link to="/spells" className="underline text-white hover:text-blue-600 mr-4">Spells</Link>
                 <Link to="/game" className="underline text-white hover:text-blue-600 mr-4">Mini Game</Link>
                 <Link to="/contact" className="underline text-white hover:text-blue-600 mr-4">Contact</Link>
-                <Link to="/login" className="underline text-white hover:text-blue-600">Login</Link>
+                <Link to="/login" className="underline text-white hover:text-blue-600 mr-4">Login</Link>
+                <Link to="/register" className="underline text-white hover:text-blue-600">Register</Link>
+
             </div>
         </nav>
     )

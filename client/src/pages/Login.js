@@ -6,7 +6,7 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
-  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [formState, setFormState] = useState({ userName: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN);
 
   // update state based on form input changes
@@ -35,7 +35,7 @@ const Login = () => {
 
     // clear form values
     setFormState({
-      username: '',
+      userName: '',
       password: '',
     });
   };
@@ -66,7 +66,7 @@ const Login = () => {
                 <p className="mb-0 text-lg font-bold mt-3 flex justify-items-center">Sign in</p>
               </div>
 
-              {/* <!-- Separator between social media sign in and username/password sign in --> */}
+              {/* <!-- Separator between social media sign in and userName/password sign in --> */}
               <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                 <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
                   Or
@@ -78,8 +78,8 @@ const Login = () => {
                 <input
                   type="text"
                   className="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[1rem] border border-gray-300 outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:text-gray-700 focus:border-gray-700"
-                  name="username"
-                  value={formState.username}
+                  name="userName"
+                  value={formState.userName}
                   onChange={handleChange}
                   placeholder="Username"
                 />
