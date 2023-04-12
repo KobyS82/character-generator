@@ -15,7 +15,7 @@
           <br></br>
           <div className="mt-8">
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              Our Team
+            Our Team
             </h2>
             <p className="mt-3 text-lg text-gray-500">
             Our team consists of six amazing Full Stack Developers with a bright future in programming. 
@@ -29,7 +29,7 @@
               <img className="h-48 w-full object-cover lg:h-auto lg:w-48" src="./images/jesus_screenshot.jpg" alt="Team Member" />
               <br></br>
 
-              <span className="text-gray-500 font-medium mr-4"> Joseph Bullock-Palsner</span>
+              <span className="text-gray-500 font-medium mr-4"> Joseph Bullock-Palser</span>
               <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src="./images/joseph_screenshot.jpg" alt="Team Member" />
               <br></br>
 
