@@ -15,6 +15,13 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
+        
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         <h4>
           Made with{' '}
           <span
