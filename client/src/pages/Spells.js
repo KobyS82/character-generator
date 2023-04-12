@@ -25,3 +25,5 @@
   }
 
   export default Spells
+
+  /*This api is from Open5e (https://open5e.com/) */
