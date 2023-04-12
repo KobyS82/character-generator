@@ -6,7 +6,7 @@ const Game= () => {
     </h1>
     <p className="mt-3 text-lg text-gray-500">
       In this mini game you will be able to customize what your character will look like. Choose your class and race on the 
-      home page then mix and match charcter outfits.
+      home page then mix and match character outfits.
     </p>
     </div>
 
