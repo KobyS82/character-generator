@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import Footer from './components/Footer';
 import About from "./pages/About"; 
 import Contact from "./pages/Contact";
-import Creators from './pages/Creators';
+import Spells from './pages/Spells';
 import Game from "./pages/Game";
 
 const client = new ApolloClient({
@@ -33,8 +33,8 @@ function App() {
                 element={<About />} 
               />
               <Route 
-                path="/Creators" 
-                element={<Creators />} 
+                path="/Spells" 
+                element={<Spells />} 
               />
                <Route 
                 path="/Game" 
