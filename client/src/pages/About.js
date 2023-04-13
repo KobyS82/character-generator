@@ -3,7 +3,7 @@ import joseph from "./images/joseph_screenshot.jpg"
 import koby from "./images/koby_screenshot.jpg"
 import caleb from "./images/caleb_screenshot.jpg"
 import jungwoo from "./images/jungwoo_screenshot.jpg"
-/*import sean from "./images/sean_screenshot.jpg"*/
+import sean from "./images/sean_screenshot.jpg"
  
  const AboutUs = () => {
     return (
@@ -49,7 +49,7 @@ import jungwoo from "./images/jungwoo_screenshot.jpg"
               <br></br>
 
               <span className="text-gray-500 font-medium mr-4"> Sean Yanez </span>
-              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" /*src={sean}*/ alt="Team Member" />
+              <img className="h-48 w-full object-cover lg:h-auto lg:w-48 mt-4" src={sean} alt="Team Member" />
               <br></br>
 
               <span className="text-gray-500 font-medium mr-4"> Jungwoo Lee </span>
