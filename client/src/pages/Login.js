@@ -1,6 +1,44 @@
-import React from "react";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../utils/mutations';
+
+import Auth from '../utils/auth';
 
 const Login = () => {
+  const [formState, setFormState] = useState({ userName: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      userName: '',
+      password: '',
+    });
+  };
   return (
     <main className="h-full">
       <div className="h-full">
@@ -16,13 +54,19 @@ const Login = () => {
 
           {/* <!-- Right column container --> */}
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-            <form>
+          {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+            <form onSubmit={handleFormSubmit}>
               {/* <!--Sign in section--> */}
               <div className="flex flex-row items-center justify-center lg:justify-start">
                 <p className="mb-0 text-lg font-bold mt-3 flex justify-items-center">Sign in</p>
               </div>
 
-              {/* <!-- Separator between social media sign in and username/password sign in --> */}
+              {/* <!-- Separator between social media sign in and userName/password sign in --> */}
               <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                 <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
                   Or
@@ -34,7 +78,9 @@ const Login = () => {
                 <input
                   type="text"
                   className="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[1rem] border border-gray-300 outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:text-gray-700 focus:border-gray-700"
-                  id="sign-in-username"
+                  name="userName"
+                  value={formState.userName}
+                  onChange={handleChange}
                   placeholder="Username"
                 />
               </div>
@@ -44,14 +90,16 @@ const Login = () => {
                 <input
                   type="password"
                   className="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[1rem] border border-gray-300 outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:text-gray-700 focus:border-gray-700"
-                  id="sign-in-password"
+                  name="password"
                   placeholder="Password"
+                  value={formState.password}
+                  onChange={handleChange}
                 />
               </div>
               {/* <!-- Login button --> */}
               <div className="text-center lg:text-left">
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-block rounded bg-primary px-4 py-2 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
                   data-te-ripple-init
                   data-te-ripple-color="light"
@@ -60,50 +108,13 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            )}
 
-            <form>
-              {/* <!--Register section--> */}
-              <div className="flex flex-row items-center justify-center lg:justify-start">
-                <p className="mb-0 text-lg font-bold mt-3 flex justify-items-center">Register</p>
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
               </div>
-
-              {/* <!-- Separator between social media sign in and username/password sign in --> */}
-              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
-                  Or
-                </p>
-              </div>
-
-              {/* <!-- Username input --> */}
-              <div className="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  type="text"
-                  className="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[1rem] border border-gray-300 outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:text-gray-700 focus:border-gray-700"
-                  id="regester-username"
-                  placeholder="Username"
-                />
-              </div>
-              {/* <!-- Password input --> */}
-              <div className="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  type="password"
-                  className="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[1rem] border border-gray-300 outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:text-gray-700 focus:border-gray-700"
-                  id="regester-password"
-                  placeholder="Password"
-                />
-              </div>
-              {/* <!-- Register button --> */}
-              <div className="text-center lg:text-left">
-                <button
-                  type="button"
-                  className="inline-block rounded bg-primary px-4 py-2 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Register
-                </button>
-              </div>
-            </form>
+            )}
           </div>
         </div>
       </div>
