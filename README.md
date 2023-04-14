@@ -41,7 +41,7 @@ To use this application, follow the instruction below:
 
 ## 6. Application results:
 [GitHub:] https://github.com/KobyS82/character-generator<br>
-[Heroku:] <br>
+[Vercel:] https://character-generator-tawny.vercel.app/<br>
 The screenshot of the application looks like this: `./assets/Screenshot.png` - ![Alt Text](./assets/Screenshot.png)<br>
 
 
