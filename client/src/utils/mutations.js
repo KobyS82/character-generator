@@ -15,8 +15,8 @@ export const CREATE_CHARACTER = gql`
 `;
 
 export const UPDATE_CHARACTER = gql`
-   mutation createCharacter($_id: ID!, $characterName: String!, $strength: Int!, $dexterity: Int!, $constitution: Int!, $intelligence: Int!, $wisdom: Int!, $charisma: Int!){
-    createCharacter(_id: $_id, characterName: $characterName, strength: $strength, dexterity: $dexterity, constitution: $constitution, intelligence: $intelligence, wisdom: $wisdom, charisma: $charisma){
+   mutation updateCharacter($_id: ID!, $characterName: String!, $strength: Int!, $dexterity: Int!, $constitution: Int!, $intelligence: Int!, $wisdom: Int!, $charisma: Int!){
+    updateCharacter(_id: $_id, characterName: $characterName, strength: $strength, dexterity: $dexterity, constitution: $constitution, intelligence: $intelligence, wisdom: $wisdom, charisma: $charisma){
       _id
       characterName
       strength
@@ -57,7 +57,7 @@ export const UPDATE_USER = gql`
 `;
 
 export const DELETE_USER = gql`
-  mutation mutation deleteUser($_id: ID!) {
+  mutation deleteUser($_id: ID!) {
     deleteUser(_id: $_id){
       _id
     }
@@ -65,7 +65,7 @@ export const DELETE_USER = gql`
 `;
 
 export const LOGIN = gql`
-  mutation createUser($userName: String!, $password: String!){
+  mutation login($userName: String!, $password: String!){
     login(userName: $userName, password: $password){
       userName
       password
@@ -74,7 +74,7 @@ export const LOGIN = gql`
 `;
 
 export const LOGOUT = gql`
-  mutation createUser($userName: String!, $password: String!){
+  mutation logout($userName: String!, $password: String!){
     logout(userName: $userName, password: $password){
       userName
       password
