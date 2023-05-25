@@ -47,7 +47,7 @@ The screenshot of the application looks like this: `./assets/Screenshot.png` - !
 
 ## 7. Questions?:
 If you have any questions, feel free to contact one of the developers via information below:<br>
-Koby Sillito - kobysillito@gmail.com <br>
+Koby Sillito - KSillitoWork@gmail.com <br>
 Joseph Bullock-Palser - PhillipVector@gmail.com <br>
 Jesus Perez - perez.jesus1039@gmail.com <br>
 Sean Yanez - sdby2003@gmail.com <br>
